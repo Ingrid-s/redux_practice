@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+  .margin {
+    margin: 100px;
+  }
+  
+  .table{
+    width: 100%;
+    text-align: left;
+  }
+  
+  .table td {
+    padding: 10px 0;
+  }
+  
+  #menu {
+    background-color: #06b4f8;
+    padding: 20px;
+    font-size: 20px;
+    margin: 0;
+    
+  }
+  #menu a{
+    color: #fff;
+    margin-right:  50px;
+    text-decoration: none;
+  }
+
+  .center {
+      text-align: center;
+  }
+
+  .red {
+    color: red;
+  }
+  .post_title{
+    text-transform: uppercase;
+    color: #06b4f8;
+    
+  }
+  .post {
+    border-top: 1px dotted #06b4f89d;
+    cursor: pointer;
+  }
