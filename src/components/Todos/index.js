@@ -52,7 +52,7 @@ class Todos extends Component {
         };
 
         return Object.keys(by_user).map((todo_id) => (
-            <div key={todo_id}>
+            <div key={todo_id} className='todos'>
                 <input 
                     type="checkbox" 
                     defaultChecked = {by_user[todo_id].completed}
@@ -61,12 +61,17 @@ class Todos extends Component {
                 {
                     by_user[todo_id].title
                 }
-                <button className="m_left">
-                    <Link to={`/todos/save${user_id}/${todo_id}`}>
-                        Edit
-                    </Link>
-                </button>
-                <button className="m_left" onClick={ () => remove(todo_id) }>Delete</button>
+                <span className='icons_container'>
+                    <span className="m_left">
+                        <Link to={`/todos/save${user_id}/${todo_id}`}>
+                            <i className="edit-solid icon" ></i>
+                        </Link>
+                    </span> 
+                    <span className="m_left" onClick={ () => remove(todo_id) }>
+                        <i className="trash icon" ></i>
+                    </span>
+                </span>
+                    
             </div>
         ));
     };
