@@ -1,3 +1,9 @@
 export const BRING_ALL_TODOS = 'todos_bring_all';
 export const LOADING = 'todos_loading';
 export const ERROR = 'todos_error';
+export const CHANGE_USER_ID = 'todos_change_user_id';
+export const CHANGE_TITLE = 'todos_change_title';
+export const SAVE = 'todos_save';
+export const UPDATE =  'todos_update';
+export const REMOVE = 'todos_remove';
+export const CLEAN = 'todos_clean';

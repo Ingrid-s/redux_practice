@@ -44,3 +44,13 @@ body {
     border-top: 1px dotted #06b4f89d;
     cursor: pointer;
   }
+
+  .todos_container{
+    font-size: 20px;
+    margin-left: 50px;
+    margin-bottom: 70px;
+  }
+
+  .m_left {
+    margin-left: 20px;
+  }

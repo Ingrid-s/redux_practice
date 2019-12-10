@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import Spinner from '../General/Spinner';
 import Fatal from '../General/Fatal';
 
@@ -8,7 +9,18 @@ import * as todosActions from '../../actions/todosActions';
 class Todos extends Component {
 
     componentDidMount(){
+        if(!Object.keys(this.props.todos).length)
         this.props.fetchAllTodos();
+        
+    }
+
+    componentDidUpdate(){
+        const { todos, loading, fetchAllTodos } = this.props;
+
+        if(!Object.keys(todos).length && !loading) {
+        fetchAllTodos();
+        //console.log(this.props);
+        }
     }
 
     showContent = () => {
@@ -34,15 +46,40 @@ class Todos extends Component {
     };
 
     putTodos = (user_id) => {
-        const { todos } = this.props;
+        const { todos, changeCheck, remove } = this.props;
         const by_user = {
             ...todos[user_id]
         };
-    }
+
+        return Object.keys(by_user).map((todo_id) => (
+            <div key={todo_id}>
+                <input 
+                    type="checkbox" 
+                    defaultChecked = {by_user[todo_id].completed}
+                    onChange={() => changeCheck(user_id, todo_id)}
+                />
+                {
+                    by_user[todo_id].title
+                }
+                <button className="m_left">
+                    <Link to={`/todos/save${user_id}/${todo_id}`}>
+                        Edit
+                    </Link>
+                </button>
+                <button className="m_left" onClick={ () => remove(todo_id) }>Delete</button>
+            </div>
+        ));
+    };
+
     render() {
-        console.log(this.props);
+       // console.log(this.props.todos);
         return (
             <div>
+                <button>
+                    <Link to='/todos/save'>
+                        Add
+                    </Link>
+                </button>
                 { this.showContent()}
             </div>
         );
